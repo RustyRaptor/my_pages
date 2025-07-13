@@ -84,6 +84,10 @@ print("Time taken for shared_categories_2:", timeit.timeit(lambda: shared_catego
 
 ```
 
+    Time taken for shared_categories: 0.032218985998042626
+    Time taken for shared_categories_2: 0.03978076600105851
+
+
 ## Performance Improvements (2)
 1. What if instead of computing the prefix and suffix every time, we iteratively build the prefix and then only compute the suffix each time?
 
@@ -132,8 +136,8 @@ time_shared_categories_3 = timeit.timeit(
 print(f"shared_categories_3 average time: {time_shared_categories_3 / 5:.6f}s")
 ```
 
-    shared_categories_2 average time: 6.488943s
-    shared_categories_3 average time: 0.435434s
+    shared_categories_2 average time: 3.791178s
+    shared_categories_3 average time: 0.277338s
 
 
 # Problem 2: Book Buying
@@ -334,69 +338,186 @@ print(optimized_cost([1, 15, 2, 12, 3, 4], k=999999999, pair_price=20))
     buy_pair | buy_left | 18
     buy_right | 18
     buy_left | buy_pair | 13
-    buy_left | BAD 15 >= 13
-    buy_right | BAD 20 >= 13
-    buy_right | BAD 15 >= 13
+    buy_left | buy_left | 30
+    buy_right | 30
+    buy_right | buy_left | 30
+    buy_right | 30
+    buy_right | buy_pair | 23
+    buy_left | buy_left | 30
+    buy_right | 30
+    buy_right | buy_left | 30
+    buy_right | 30
     13
     # Test case 3: as many pairs as you want -> 15
     buy_pair | buy_pair | buy_pair | 15
     buy_left | buy_left | 18
     buy_right | 18
-    buy_right | BAD 16 >= 15
-    buy_left | buy_pair | BAD 17 >= 15
+    buy_right | buy_left | 18
+    buy_right | 18
+    buy_left | buy_pair | buy_left | 23
+    buy_right | 23
     buy_left | buy_pair | 19
-    buy_left | BAD 20 >= 15
-    buy_right | BAD 19 >= 15
-    buy_right | BAD 17 >= 15
-    buy_right | buy_pair | BAD 15 >= 15
-    buy_left | BAD 17 >= 15
-    buy_right | BAD 16 >= 15
+    buy_left | buy_left | 25
+    buy_right | 25
+    buy_right | buy_left | 25
+    buy_right | 25
+    buy_right | buy_pair | 22
+    buy_left | buy_left | 25
+    buy_right | 25
+    buy_right | buy_left | 25
+    buy_right | 25
+    buy_right | buy_pair | buy_left | 17
+    buy_right | 17
+    buy_left | buy_pair | 22
+    buy_left | buy_left | 25
+    buy_right | 25
+    buy_right | buy_left | 25
+    buy_right | 25
+    buy_right | buy_pair | 21
+    buy_left | buy_left | 25
+    buy_right | 25
+    buy_right | buy_left | 25
+    buy_right | 25
     buy_left | buy_pair | buy_pair | buy_left | 19
     buy_right | 19
     buy_left | buy_pair | 15
-    buy_left | BAD 16 >= 15
-    buy_right | BAD 15 >= 15
+    buy_left | buy_left | 21
+    buy_right | 21
+    buy_right | buy_left | 21
+    buy_right | 21
     buy_right | buy_pair | 18
-    buy_left | BAD 15 >= 15
-    buy_right | BAD 19 >= 15
-    buy_left | buy_pair | BAD 15 >= 15
-    buy_left | buy_pair | BAD 17 >= 15
-    buy_left | BAD 18 >= 15
-    buy_right | BAD 16 >= 15
-    buy_right | buy_pair | BAD 19 >= 15
-    buy_left | BAD 16 >= 15
-    buy_right | BAD 19 >= 15
+    buy_left | buy_left | 21
+    buy_right | 21
+    buy_right | buy_left | 21
+    buy_right | 21
+    buy_left | buy_pair | buy_pair | 20
+    buy_left | buy_left | 26
+    buy_right | 26
+    buy_right | buy_left | 26
+    buy_right | 26
+    buy_left | buy_pair | buy_left | 22
+    buy_right | 22
+    buy_left | buy_pair | 23
+    buy_left | buy_left | 27
+    buy_right | 27
+    buy_right | buy_left | 27
+    buy_right | 27
+    buy_right | buy_pair | 21
+    buy_left | buy_left | 27
+    buy_right | 27
+    buy_right | buy_left | 27
+    buy_right | 27
+    buy_right | buy_pair | buy_left | 25
+    buy_right | 25
+    buy_left | buy_pair | 21
+    buy_left | buy_left | 27
+    buy_right | 27
+    buy_right | buy_left | 27
+    buy_right | 27
+    buy_right | buy_pair | 24
+    buy_left | buy_left | 27
+    buy_right | 27
+    buy_right | buy_left | 27
+    buy_right | 27
     buy_right | buy_pair | buy_pair | 17
     buy_left | buy_left | 20
     buy_right | 20
-    buy_right | BAD 18 >= 15
-    buy_left | buy_pair | BAD 19 >= 15
-    buy_left | BAD 16 >= 15
-    buy_right | BAD 19 >= 15
-    buy_right | buy_pair | BAD 17 >= 15
-    buy_left | BAD 19 >= 15
-    buy_right | BAD 18 >= 15
+    buy_right | buy_left | 20
+    buy_right | 20
+    buy_left | buy_pair | buy_left | 25
+    buy_right | 25
+    buy_left | buy_pair | 21
+    buy_left | buy_left | 27
+    buy_right | 27
+    buy_right | buy_left | 27
+    buy_right | 27
+    buy_right | buy_pair | 24
+    buy_left | buy_left | 27
+    buy_right | 27
+    buy_right | buy_left | 27
+    buy_right | 27
+    buy_right | buy_pair | buy_left | 19
+    buy_right | 19
+    buy_left | buy_pair | 24
+    buy_left | buy_left | 27
+    buy_right | 27
+    buy_right | buy_left | 27
+    buy_right | 27
+    buy_right | buy_pair | 23
+    buy_left | buy_left | 27
+    buy_right | 27
+    buy_right | buy_left | 27
+    buy_right | 27
     buy_right | buy_pair | buy_pair | buy_left | 16
     buy_right | 16
-    buy_left | BAD 16 >= 15
-    buy_right | BAD 15 >= 15
+    buy_left | buy_pair | 21
+    buy_left | buy_left | 24
+    buy_right | 24
+    buy_right | buy_left | 24
+    buy_right | 24
+    buy_right | buy_pair | 20
+    buy_left | buy_left | 24
+    buy_right | 24
+    buy_right | buy_left | 24
+    buy_right | 24
     buy_left | buy_pair | buy_pair | 17
     buy_left | buy_left | 20
     buy_right | 20
-    buy_right | BAD 18 >= 15
-    buy_left | buy_pair | BAD 19 >= 15
-    buy_left | BAD 16 >= 15
-    buy_right | BAD 19 >= 15
-    buy_right | buy_pair | BAD 17 >= 15
-    buy_left | BAD 19 >= 15
-    buy_right | BAD 18 >= 15
+    buy_right | buy_left | 20
+    buy_right | 20
+    buy_left | buy_pair | buy_left | 25
+    buy_right | 25
+    buy_left | buy_pair | 21
+    buy_left | buy_left | 27
+    buy_right | 27
+    buy_right | buy_left | 27
+    buy_right | 27
+    buy_right | buy_pair | 24
+    buy_left | buy_left | 27
+    buy_right | 27
+    buy_right | buy_left | 27
+    buy_right | 27
+    buy_right | buy_pair | buy_left | 19
+    buy_right | 19
+    buy_left | buy_pair | 24
+    buy_left | buy_left | 27
+    buy_right | 27
+    buy_right | buy_left | 27
+    buy_right | 27
+    buy_right | buy_pair | 23
+    buy_left | buy_left | 27
+    buy_right | 27
+    buy_right | buy_left | 27
+    buy_right | 27
     buy_right | buy_pair | buy_pair | 19
-    buy_left | BAD 21 >= 15
-    buy_right | BAD 16 >= 15
-    buy_left | buy_pair | BAD 17 >= 15
-    buy_left | BAD 19 >= 15
-    buy_right | BAD 18 >= 15
-    buy_right | BAD 15 >= 15
+    buy_left | buy_left | 23
+    buy_right | 23
+    buy_right | buy_left | 23
+    buy_right | 23
+    buy_left | buy_pair | buy_left | 19
+    buy_right | 19
+    buy_left | buy_pair | 24
+    buy_left | buy_left | 27
+    buy_right | 27
+    buy_right | buy_left | 27
+    buy_right | 27
+    buy_right | buy_pair | 23
+    buy_left | buy_left | 27
+    buy_right | 27
+    buy_right | buy_left | 27
+    buy_right | 27
+    buy_right | buy_pair | buy_left | 27
+    buy_right | 27
+    buy_left | buy_pair | 23
+    buy_left | buy_left | 27
+    buy_right | 27
+    buy_right | buy_left | 27
+    buy_right | 27
+    buy_right | buy_pair | 22
+    buy_left | buy_left | 27
+    buy_right | 27
+    buy_right | buy_left | 27
+    buy_right | 27
     15
     # Test case 4: pair_price is more expensive than any pair -> 27
     buy_pair | buy_pair | buy_pair | 60
@@ -416,7 +537,8 @@ print(optimized_cost([1, 15, 2, 12, 3, 4], k=999999999, pair_price=20))
     buy_right | 40
     buy_right | buy_left | 40
     buy_right | 40
-    buy_right | buy_pair | BAD 45 >= 40
+    buy_right | buy_pair | buy_left | 47
+    buy_right | 47
     buy_left | buy_pair | 52
     buy_left | buy_left | 40
     buy_right | 40
@@ -427,7 +549,8 @@ print(optimized_cost([1, 15, 2, 12, 3, 4], k=999999999, pair_price=20))
     buy_right | 40
     buy_right | buy_left | 40
     buy_right | 40
-    buy_left | buy_pair | buy_pair | BAD 43 >= 40
+    buy_left | buy_pair | buy_pair | buy_left | 49
+    buy_right | 49
     buy_left | buy_pair | 45
     buy_left | buy_left | 36
     buy_right | 36
@@ -439,7 +562,8 @@ print(optimized_cost([1, 15, 2, 12, 3, 4], k=999999999, pair_price=20))
     buy_right | buy_left | 36
     buy_right | 36
     buy_left | buy_pair | buy_pair | 50
-    buy_left | BAD 36 >= 36
+    buy_left | buy_left | 41
+    buy_right | 41
     buy_right | buy_left | 41
     buy_right | 41
     buy_left | buy_pair | buy_left | 37
@@ -454,7 +578,8 @@ print(optimized_cost([1, 15, 2, 12, 3, 4], k=999999999, pair_price=20))
     buy_right | 27
     buy_right | buy_left | 27
     buy_right | 27
-    buy_right | buy_pair | BAD 34 >= 27
+    buy_right | buy_pair | buy_left | 40
+    buy_right | 40
     buy_left | buy_pair | 36
     buy_left | buy_left | 27
     buy_right | 27
@@ -465,8 +590,13 @@ print(optimized_cost([1, 15, 2, 12, 3, 4], k=999999999, pair_price=20))
     buy_right | 27
     buy_right | buy_left | 27
     buy_right | 27
-    buy_right | buy_pair | BAD 27 >= 27
-    buy_left | buy_pair | BAD 34 >= 27
+    buy_right | buy_pair | buy_pair | 47
+    buy_left | buy_left | 35
+    buy_right | 35
+    buy_right | buy_left | 35
+    buy_right | 35
+    buy_left | buy_pair | buy_left | 40
+    buy_right | 40
     buy_left | buy_pair | 36
     buy_left | buy_left | 27
     buy_right | 27
@@ -477,7 +607,8 @@ print(optimized_cost([1, 15, 2, 12, 3, 4], k=999999999, pair_price=20))
     buy_right | 27
     buy_right | buy_left | 27
     buy_right | 27
-    buy_right | buy_pair | BAD 32 >= 27
+    buy_right | buy_pair | buy_left | 34
+    buy_right | 34
     buy_left | buy_pair | 39
     buy_left | buy_left | 27
     buy_right | 27
@@ -488,11 +619,25 @@ print(optimized_cost([1, 15, 2, 12, 3, 4], k=999999999, pair_price=20))
     buy_right | 27
     buy_right | buy_left | 27
     buy_right | 27
-    buy_right | buy_pair | buy_pair | BAD 44 >= 27
-    buy_left | BAD 31 >= 27
-    buy_right | BAD 30 >= 27
-    buy_left | buy_pair | BAD 27 >= 27
-    buy_left | buy_pair | BAD 34 >= 27
+    buy_right | buy_pair | buy_pair | buy_left | 46
+    buy_right | 46
+    buy_left | buy_pair | 51
+    buy_left | buy_left | 39
+    buy_right | 39
+    buy_right | buy_left | 39
+    buy_right | 39
+    buy_right | buy_pair | 50
+    buy_left | buy_left | 39
+    buy_right | 39
+    buy_right | buy_left | 39
+    buy_right | 39
+    buy_left | buy_pair | buy_pair | 47
+    buy_left | buy_left | 35
+    buy_right | 35
+    buy_right | buy_left | 35
+    buy_right | 35
+    buy_left | buy_pair | buy_left | 40
+    buy_right | 40
     buy_left | buy_pair | 36
     buy_left | buy_left | 27
     buy_right | 27
@@ -503,7 +648,8 @@ print(optimized_cost([1, 15, 2, 12, 3, 4], k=999999999, pair_price=20))
     buy_right | 27
     buy_right | buy_left | 27
     buy_right | 27
-    buy_right | buy_pair | BAD 32 >= 27
+    buy_right | buy_pair | buy_left | 34
+    buy_right | 34
     buy_left | buy_pair | 39
     buy_left | buy_left | 27
     buy_right | 27
@@ -514,8 +660,13 @@ print(optimized_cost([1, 15, 2, 12, 3, 4], k=999999999, pair_price=20))
     buy_right | 27
     buy_right | buy_left | 27
     buy_right | 27
-    buy_right | buy_pair | BAD 29 >= 27
-    buy_left | buy_pair | BAD 32 >= 27
+    buy_right | buy_pair | buy_pair | 49
+    buy_left | buy_left | 38
+    buy_right | 38
+    buy_right | buy_left | 38
+    buy_right | 38
+    buy_left | buy_pair | buy_left | 34
+    buy_right | 34
     buy_left | buy_pair | 39
     buy_left | buy_left | 27
     buy_right | 27
@@ -526,7 +677,8 @@ print(optimized_cost([1, 15, 2, 12, 3, 4], k=999999999, pair_price=20))
     buy_right | 27
     buy_right | buy_left | 27
     buy_right | 27
-    buy_right | buy_pair | BAD 35 >= 27
+    buy_right | buy_pair | buy_left | 42
+    buy_right | 42
     buy_left | buy_pair | 38
     buy_left | buy_left | 27
     buy_right | 27
@@ -545,7 +697,8 @@ print(optimized_cost([1, 15, 2, 12, 3, 4], k=999999999, pair_price=20))
     buy_right | 54
     buy_right | buy_left | 54
     buy_right | 54
-    buy_left | buy_pair | BAD 55 >= 54
+    buy_left | buy_pair | buy_left | 67
+    buy_right | 67
     buy_left | buy_pair | 57
     buy_left | buy_left | 52
     buy_right | 52
@@ -561,9 +714,11 @@ print(optimized_cost([1, 15, 2, 12, 3, 4], k=999999999, pair_price=20))
     buy_left | buy_pair | 58
     buy_left | buy_left | 52
     buy_right | 52
-    buy_right | BAD 50 >= 45
+    buy_right | buy_left | 52
+    buy_right | 52
     buy_right | buy_pair | 55
-    buy_left | BAD 50 >= 45
+    buy_left | buy_left | 52
+    buy_right | 52
     buy_right | buy_left | 52
     buy_right | 52
     buy_left | buy_pair | buy_pair | buy_left | 53
@@ -579,9 +734,12 @@ print(optimized_cost([1, 15, 2, 12, 3, 4], k=999999999, pair_price=20))
     buy_right | buy_left | 38
     buy_right | 38
     buy_left | buy_pair | buy_pair | 56
-    buy_left | BAD 48 >= 38
-    buy_right | BAD 39 >= 38
-    buy_left | buy_pair | BAD 38 >= 38
+    buy_left | buy_left | 51
+    buy_right | 51
+    buy_right | buy_left | 51
+    buy_right | 51
+    buy_left | buy_pair | buy_left | 41
+    buy_right | 41
     buy_left | buy_pair | 50
     buy_left | buy_left | 37
     buy_right | 37
@@ -592,7 +750,8 @@ print(optimized_cost([1, 15, 2, 12, 3, 4], k=999999999, pair_price=20))
     buy_right | 37
     buy_right | buy_left | 37
     buy_right | 37
-    buy_right | buy_pair | BAD 40 >= 37
+    buy_right | buy_pair | buy_left | 52
+    buy_right | 52
     buy_left | buy_pair | 42
     buy_left | buy_left | 37
     buy_right | 37
@@ -606,8 +765,10 @@ print(optimized_cost([1, 15, 2, 12, 3, 4], k=999999999, pair_price=20))
     buy_right | buy_pair | buy_pair | 45
     buy_left | buy_left | 39
     buy_right | 39
-    buy_right | BAD 37 >= 37
-    buy_left | buy_pair | BAD 40 >= 37
+    buy_right | buy_left | 39
+    buy_right | 39
+    buy_left | buy_pair | buy_left | 52
+    buy_right | 52
     buy_left | buy_pair | 42
     buy_left | buy_left | 37
     buy_right | 37
@@ -623,39 +784,57 @@ print(optimized_cost([1, 15, 2, 12, 3, 4], k=999999999, pair_price=20))
     buy_left | buy_pair | 43
     buy_left | buy_left | 37
     buy_right | 37
-    buy_right | BAD 35 >= 30
-    buy_right | buy_pair | 40
-    buy_left | BAD 35 >= 30
     buy_right | buy_left | 37
     buy_right | 37
-    buy_right | buy_pair | buy_pair | BAD 44 >= 30
-    buy_left | BAD 39 >= 30
-    buy_right | BAD 36 >= 30
+    buy_right | buy_pair | 40
+    buy_left | buy_left | 37
+    buy_right | 37
+    buy_right | buy_left | 37
+    buy_right | 37
+    buy_right | buy_pair | buy_pair | buy_left | 46
+    buy_right | 46
+    buy_left | buy_pair | 59
+    buy_left | buy_left | 53
+    buy_right | 53
+    buy_right | buy_left | 53
+    buy_right | 53
+    buy_right | buy_pair | 56
+    buy_left | buy_left | 53
+    buy_right | 53
+    buy_right | buy_left | 53
+    buy_right | 53
     buy_left | buy_pair | buy_pair | 45
     buy_left | buy_left | 39
     buy_right | 39
-    buy_right | BAD 37 >= 30
-    buy_left | buy_pair | BAD 40 >= 30
+    buy_right | buy_left | 39
+    buy_right | 39
+    buy_left | buy_pair | buy_left | 52
+    buy_right | 52
     buy_left | buy_pair | 42
-    buy_left | BAD 34 >= 30
+    buy_left | buy_left | 37
+    buy_right | 37
     buy_right | buy_left | 37
     buy_right | 37
     buy_right | buy_pair | 43
     buy_left | buy_left | 37
     buy_right | 37
-    buy_right | BAD 35 >= 30
+    buy_right | buy_left | 37
+    buy_right | 37
     buy_right | buy_pair | buy_left | 30
     buy_right | 30
     buy_left | buy_pair | 43
     buy_left | buy_left | 37
     buy_right | 37
-    buy_right | BAD 35 >= 30
+    buy_right | buy_left | 37
+    buy_right | 37
     buy_right | buy_pair | 40
-    buy_left | BAD 35 >= 30
+    buy_left | buy_left | 37
+    buy_right | 37
     buy_right | buy_left | 37
     buy_right | 37
     buy_right | buy_pair | buy_pair | 47
-    buy_left | BAD 42 >= 30
+    buy_left | buy_left | 44
+    buy_right | 44
     buy_right | buy_left | 44
     buy_right | 44
     buy_left | buy_pair | buy_left | 30
@@ -663,20 +842,25 @@ print(optimized_cost([1, 15, 2, 12, 3, 4], k=999999999, pair_price=20))
     buy_left | buy_pair | 43
     buy_left | buy_left | 37
     buy_right | 37
-    buy_right | BAD 35 >= 30
-    buy_right | buy_pair | 40
-    buy_left | BAD 35 >= 30
     buy_right | buy_left | 37
     buy_right | 37
-    buy_right | buy_pair | BAD 39 >= 30
+    buy_right | buy_pair | 40
+    buy_left | buy_left | 37
+    buy_right | 37
+    buy_right | buy_left | 37
+    buy_right | 37
+    buy_right | buy_pair | buy_left | 54
+    buy_right | 54
     buy_left | buy_pair | 40
-    buy_left | BAD 35 >= 30
+    buy_left | buy_left | 37
+    buy_right | 37
     buy_right | buy_left | 37
     buy_right | 37
     buy_right | buy_pair | 41
     buy_left | buy_left | 37
     buy_right | 37
-    buy_right | BAD 36 >= 30
+    buy_right | buy_left | 37
+    buy_right | 37
     30
 
 
@@ -748,6 +932,7 @@ print(optimized_cost([1, 15, 2, 12, 3, 4], k=999999999, pair_price=20))
 
 ```
 
+    # Test case 1: No pair purchases allowed# Expected: 30 (buy all individually)
     buy_left | buy_left | buy_left | 30
     buy_right | 30
     buy_right | buy_left | 30
