@@ -1379,49 +1379,46 @@ def find_min_cost(
 1. General Stuff
     1. Required for above problems
         1. Python Dicts
-            1. RealPython: https://realpython.com/python-dicts/ 
-            2. El Pythonista: https://elpythonista.com/diccionarios-en-python-dict
-            3. Spanish Docs: https://docs.python.org/es/3.12/tutorial/datastructures.html#dictionaries
+            1. RealPython: [https://realpython.com/python-dicts/]
+            2. El Pythonista: [https://elpythonista.com/diccionarios-en-python-dict]
+            3. Spanish Docs: [https://docs.python.org/es/3.12/tutorial/datastructures.html#dictionaries]
         2. Python Iteration
-            1. RealPython: https://realpython.com/python-iterators-iterables/
-            2. ElLibroDePython: https://ellibrodepython.com/iterator-python
+            1. RealPython: [https://realpython.com/python-iterators-iterables/]
+            2. ElLibroDePython: [https://ellibrodepython.com/iterator-python]
     2. Not required for above but highly recommended reading. 
         1. Functional Programing
-            1. ElLibroDePython: https://ellibrodepython.com/programacion-funcional-python
-            2. RealPython: https://realpython.com/python-functional-programming/ 
+            1. ElLibroDePython: [https://ellibrodepython.com/programacion-funcional-python]
+            2. RealPython: [https://realpython.com/python-functional-programming/] 
             3. My Note: It's a way of thinking and communicating about software problems. I use it whenever I can.
         2. Generators
-            1. ElLibroDePython: https://ellibrodepython.com/yield-python
+            1. ElLibroDePython: [https://ellibrodepython.com/yield-python]
         3. Type annotations
-            1. ElLibroDePython: https://ellibrodepython.com/function-annotations 
+            1. ElLibroDePython: [https://ellibrodepython.com/function-annotations] 
 2. Problem 1
     1. Sets in python: 
-        1. RealPython https://realpython.com/python-sets/
-        2. Spanish Docs: https://docs.python.org/es/3.13/library/stdtypes.html#set-types-set-frozenset
-        3. El Pythonista: https://elpythonista.com/conjuntos-en-python-set
+        1. RealPython [https://realpython.com/python-sets/]
+        2. Spanish Docs: [https://docs.python.org/es/3.13/library/stdtypes.html#set-types-set-frozenset]
+        3. El Pythonista: [https://elpythonista.com/conjuntos-en-python-set]
     2. For loops in python:
-        1. RealPython: https://realpython.com/python-for-loop/
-        2. ElLibroDePython: https://ellibrodepython.com/for-python
-        3. j2logo: https://j2logo.com/bucle-for-en-python/
+        1. RealPython: [https://realpython.com/python-for-loop/]
+        2. ElLibroDePython: [https://ellibrodepython.com/for-python]
+        3. j2logo: [https://j2logo.com/bucle-for-en-python/]
     3. Python `enumerate()` (used with for loop)
-        1. RealPython: https://realpython.com/ref/builtin-functions/enumerate/
-        2. Spanish Docs: https://docs.python.org/es/3.13/library/functions.html#enumerate
-        3. ElLibroDePython: https://ellibrodepython.com/enumerate-python
+        1. RealPython: [https://realpython.com/ref/builtin-functions/enumerate/]
+        2. Spanish Docs: [https://docs.python.org/es/3.13/library/functions.html#enumerate]
+        3. ElLibroDePython: [https://ellibrodepython.com/enumerate-python]
 4. Problem 2
     1. Ohhhhh boy this one is a deep rabbit hole.
         1. Solving problems with Search:
-            1. As close as I can get to a code summary of what I implemented: https://github.com/aimacode/aima-python/blob/master/search4e.ipynb
-            2. Formulating Problems: https://aima.cs.berkeley.edu/4th-ed/pdfs/newchap03.pdf 
+            1. As close as I can get to a code summary of what I implemented: [https://github.com/aimacode/aima-python/blob/master/search4e.ipynb]
+            2. Formulating Problems: [https://aima.cs.berkeley.edu/4th-ed/pdfs/newchap03.pdf] 
                 1. Important Things: `initial state`, `actions`, `successor function`, `path cost`, `optimal solution`
-            3. Full book: https://annas-archive.org/md5/fb03b9640fac32dd6c301685f9393994 
-            4. Geeks4Geeks: https://www.geeksforgeeks.org/artificial-intelligence/how-does-an-agent-formulate-a-problem/#
-            5. A Medium Article: https://medium.com/kredo-ai-engineering/search-algorithms-part-1-problem-formulation-and-searching-for-solutions-28f722b7a1a6 
-            6. Summary Slides: https://web.pdx.edu/~arhodes/ai7.pdf 
+            3. Full book: [https://annas-archive.org/md5/fb03b9640fac32dd6c301685f9393994]
+            4. Geeks4Geeks: [https://www.geeksforgeeks.org/artificial-intelligence/how-does-an-agent-formulate-a-problem/#]
+            5. A Medium Article: [https://medium.com/kredo-ai-engineering/search-algorithms-part-1-problem-formulation-and-searching-for-solutions-28f722b7a1a6]
+            6. Summary Slides: [https://web.pdx.edu/~arhodes/ai7.pdf] 
         2. My solution simplifies and customizes these concepts to suit the problem.
         3. Why is this important?
             1. Once you understand this approach you can solve many many problems very quickly and it also makes it easy to communicate about problem solving. I recommend doing 5 problems using this framework to get the hang of it.
     2. I used recursion because its fast to implement especially during a timed interview. But it's not necessary of course.
 
-        
-
-    
